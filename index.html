@@ -37,6 +37,7 @@
         <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:13px;color:#2E35A0;letter-spacing:4px;">SWORD</span>
       </div>
       <h2 style="font-size:22px;font-weight:700;color:#1A1A2E;margin-bottom:8px;font-family:'Playfair Display',Georgia,serif;">Hi Richard 👋</h2>
+      <audio id="voicemail" src="richard-voicemail.mp3" preload="auto"></audio>
       <p style="font-size:15px;color:#1A1A2E;line-height:1.6;margin-bottom:12px;font-weight:500;">What if every SwordPay user became a salesperson — <span style="color:#2E35A0;">and you only paid when they delivered?</span></p>
       <p style="font-size:13px;color:#6B7194;line-height:1.6;margin-bottom:6px;">This affiliate model turns your ~10K users into a performance-based acquisition channel:</p>
       <p style="font-size:12px;color:#2E35A0;line-height:1.5;margin-bottom:16px;font-style:italic;">Referred customers show 18% higher LTV and 25% higher margins than paid acquisition — Wharton research (Schmitt et al., 2011)</p>
@@ -1042,6 +1043,20 @@ function resetDemo() {
 renderReferrals();
 renderInviteStep();
 renderFraudRules();
+
+// Autoplay voicemail on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('voicemail');
+  if (audio) {
+    audio.play().catch(function() {
+      // Autoplay blocked - play on first user interaction
+      document.addEventListener('click', function playOnce() {
+        audio.play();
+        document.removeEventListener('click', playOnce);
+      }, { once: true });
+    });
+  }
+});
 </script>
 </body>
 </html>
