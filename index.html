@@ -37,7 +37,6 @@
         <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:13px;color:#2E35A0;letter-spacing:4px;">SWORD</span>
       </div>
       <h2 style="font-size:22px;font-weight:700;color:#1A1A2E;margin-bottom:8px;font-family:'Playfair Display',Georgia,serif;">Hi Richard 👋</h2>
-      <audio id="voicemail" src="richard-voicemail.mp3" preload="auto"></audio>
       <p style="font-size:15px;color:#1A1A2E;line-height:1.6;margin-bottom:12px;font-weight:500;">What if every SwordPay user became a salesperson — <span style="color:#2E35A0;">and you only paid when they delivered?</span></p>
       <p style="font-size:13px;color:#6B7194;line-height:1.6;margin-bottom:6px;">This affiliate model turns your ~10K users into a performance-based acquisition channel:</p>
       <p style="font-size:12px;color:#2E35A0;line-height:1.5;margin-bottom:16px;font-style:italic;">Referred customers show 18% higher LTV and 25% higher margins than paid acquisition — Wharton research (Schmitt et al., 2011)</p>
@@ -48,7 +47,7 @@
         </div>
         <div style="display:flex;gap:12px;padding:12px 14px;background:#F8F9FC;border-radius:10px;border:1px solid #E2E4F0;">
           <span style="font-size:20px;flex-shrink:0;">🔄</span>
-          <div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:2px;">Built-in Viral Loop</div><div style="font-size:12px;color:#6B7194;line-height:1.5;">WhatsApp-native sharing meets residual income. Users don't just refer once — they build networks.</div></div>
+          <div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:2px;">Built-in Viral Loop</div><div style="font-size:12px;color:#6B7194;line-height:1.5;">WhatsApp + Telegram sharing meets residual income. Users don't just refer once — they build networks.</div></div>
         </div>
         <div style="display:flex;gap:12px;padding:12px 14px;background:#F8F9FC;border-radius:10px;border:1px solid #E2E4F0;">
           <span style="font-size:20px;flex-shrink:0;">⚔️</span>
@@ -797,7 +796,7 @@
 
 <script>
 // ═══ DATA ═══
-const contacts = [
+const whatsappContacts = [
   { id:1, name:"Marcus Johnson", phone:"+1 (305) 555-0142", avatar:"MJ", selected:false },
   { id:2, name:"Aisha Patel", phone:"+44 7700 900123", avatar:"AP", selected:false },
   { id:3, name:"Diego Ramirez", phone:"+52 55 1234 5678", avatar:"DR", selected:false },
@@ -807,6 +806,18 @@ const contacts = [
   { id:7, name:"Sophie Chen", phone:"+65 9123 4567", avatar:"SC", selected:false },
   { id:8, name:"Raj Sharma", phone:"+91 98765 43210", avatar:"RS", selected:false },
 ];
+
+const telegramContacts = [
+  { id:1, name:"Alex Volkov", username:"@alexv_crypto", avatar:"AV", selected:false },
+  { id:2, name:"Nina Petrova", username:"@nina_p", avatar:"NP", selected:false },
+  { id:3, name:"Omar Farouk", username:"@omarfarouk", avatar:"OF", selected:false },
+  { id:4, name:"Yuki Nakamura", username:"@yuki_trades", avatar:"YN", selected:false },
+  { id:5, name:"Emma Wilson", username:"@emmaw", avatar:"EW", selected:false },
+  { id:6, name:"Carlos Mendez", username:"@carlosm_mx", avatar:"CM", selected:false },
+];
+
+// Legacy alias for compatibility
+let contacts = whatsappContacts;
 
 const templates = [
   { id:1, title:"Quick & Direct", emoji:"⚡", preview:"Hey! I've been using SwordPay to send money & trade crypto — zero fees, encrypted chat, instant transfers. Use my link and we both get $5 💰" },
@@ -833,6 +844,7 @@ const fraudRules = [
 
 let selectedTemplate = 1;
 let inviteStep = 1;
+let selectedPlatform = 'whatsapp'; // 'whatsapp' or 'telegram'
 
 // ═══ TAB SWITCHING ═══
 function switchTab(tab) {
@@ -869,9 +881,19 @@ function renderReferrals() {
 }
 
 // ═══ INVITE FLOW ═══
+function getActiveContacts() {
+  return selectedPlatform === 'telegram' ? telegramContacts : whatsappContacts;
+}
+
+function switchPlatform(platform) {
+  selectedPlatform = platform;
+  renderInviteStep();
+}
+
 function renderInviteStep() {
   const el = document.getElementById('invite-steps');
-  const selected = contacts.filter(c => c.selected);
+  const activeContacts = getActiveContacts();
+  const selected = activeContacts.filter(c => c.selected);
   const count = selected.length;
 
   const stepBar = `<div style="display:flex;gap:8px;margin-bottom:28px;">
@@ -883,18 +905,33 @@ function renderInviteStep() {
     `).join('')}
   </div>`;
 
+  // Platform selector tabs
+  const platformTabs = `<div style="display:flex;gap:4px;margin-bottom:20px;background:var(--off-white);border-radius:10px;padding:4px;border:1px solid var(--border);">
+    <button onclick="switchPlatform('whatsapp')" class="btn" style="flex:1;padding:10px 16px;background:${selectedPlatform === 'whatsapp' ? '#25D366' : 'transparent'};color:${selectedPlatform === 'whatsapp' ? '#fff' : 'var(--gray)'};border-radius:8px;font-size:13px;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s ease;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="${selectedPlatform === 'whatsapp' ? 'white' : '#6B7194'}"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+      WhatsApp
+    </button>
+    <button onclick="switchPlatform('telegram')" class="btn" style="flex:1;padding:10px 16px;background:${selectedPlatform === 'telegram' ? '#0088cc' : 'transparent'};color:${selectedPlatform === 'telegram' ? '#fff' : 'var(--gray)'};border-radius:8px;font-size:13px;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s ease;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="${selectedPlatform === 'telegram' ? 'white' : '#6B7194'}"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      Telegram
+    </button>
+  </div>`;
+
   if (inviteStep === 1) {
-    const allSelected = contacts.every(c => c.selected);
-    el.innerHTML = stepBar + `
+    const allSelected = activeContacts.every(c => c.selected);
+    const platformLabel = selectedPlatform === 'telegram' ? 'Telegram' : 'WhatsApp';
+    const contactDetail = selectedPlatform === 'telegram' ? 'username' : 'phone';
+    
+    el.innerHTML = stepBar + platformTabs + `
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <h3 style="color:var(--dark);font-size:17px;font-weight:700;">WhatsApp Contacts</h3>
+        <h3 style="color:var(--dark);font-size:17px;font-weight:700;">${platformLabel} Contacts</h3>
         <button class="btn" onclick="toggleAll()" style="background:var(--blue-pale);color:var(--blue);padding:7px 16px;border-radius:8px;font-size:12px;">${allSelected ? 'Deselect All' : 'Select All'}</button>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        ${contacts.map(c => `
+        ${activeContacts.map(c => `
           <div onclick="toggleContact(${c.id})" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:${c.selected ? 'var(--blue-pale)' : 'var(--white)'};border:1.5px solid ${c.selected ? 'var(--blue)' : 'var(--border)'};border-radius:12px;cursor:pointer;transition:all 0.2s ease;">
             <div style="width:40px;height:40px;border-radius:20px;background:${c.selected ? 'var(--blue)' : 'var(--off-white)'};color:${c.selected ? 'var(--white)' : 'var(--gray)'};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">${c.avatar}</div>
-            <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">${c.name}</div><div style="font-size:12px;color:var(--gray-light);">${c.phone}</div></div>
+            <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">${c.name}</div><div style="font-size:12px;color:var(--gray-light);">${c[contactDetail]}</div></div>
             <div style="width:22px;height:22px;border-radius:6px;border:2px solid ${c.selected ? 'var(--blue)' : 'var(--border)'};background:${c.selected ? 'var(--blue)' : 'transparent'};display:flex;align-items:center;justify-content:center;">
               ${c.selected ? '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' : ''}
             </div>
@@ -925,8 +962,19 @@ function renderInviteStep() {
     `;
   } else if (inviteStep === 3) {
     const t = templates.find(t => t.id === selectedTemplate);
-    el.innerHTML = stepBar + `
-      <h3 style="color:var(--dark);font-size:17px;font-weight:700;margin-bottom:16px;">Preview & Send</h3>
+    const isTelegram = selectedPlatform === 'telegram';
+    
+    // Platform-specific preview styles
+    const previewHtml = isTelegram ? `
+      <div style="background:#17212B;border-radius:14px;padding:20px;margin-bottom:20px;">
+        <div style="font-size:11px;color:#6AB2F2;margin-bottom:10px;font-weight:600;">Telegram Preview</div>
+        <div style="background:#2B5278;border-radius:12px 12px 4px 12px;padding:14px;font-size:14px;color:#fff;line-height:1.6;">
+          ${t.preview}
+          <div style="margin-top:10px;padding:10px 14px;background:#00000030;border-radius:8px;font-size:13px;">🔗 <span style="color:#6AB2F2;text-decoration:underline;">sword.me/ref/kam2847</span></div>
+          <div style="font-size:11px;color:#6AB2F2;text-align:right;margin-top:6px;">2:34 PM ✓✓</div>
+        </div>
+      </div>
+    ` : `
       <div style="background:#0B3D2E;border-radius:14px;padding:20px;margin-bottom:20px;">
         <div style="font-size:11px;color:#86CBA5;margin-bottom:10px;font-weight:600;">WhatsApp Preview</div>
         <div style="background:#005C4B;border-radius:12px 12px 4px 12px;padding:14px;font-size:14px;color:#E9EDEF;line-height:1.6;">
@@ -935,6 +983,24 @@ function renderInviteStep() {
           <div style="font-size:11px;color:#86CBA5;text-align:right;margin-top:6px;">2:34 PM ✓✓</div>
         </div>
       </div>
+    `;
+
+    // Platform-specific send button
+    const sendButtonHtml = isTelegram ? `
+      <button class="btn" onclick="sendInvites()" style="flex:2;padding:16px;background:#0088cc;color:#fff;border-radius:12px;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Send via Telegram
+      </button>
+    ` : `
+      <button class="btn" onclick="sendInvites()" style="flex:2;padding:16px;background:#25D366;color:#fff;border-radius:12px;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.657 0-3.216-.5-4.51-1.355l-.315-.19-2.87.852.852-2.87-.19-.315A7.955 7.955 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Send via WhatsApp
+      </button>
+    `;
+
+    el.innerHTML = stepBar + `
+      <h3 style="color:var(--dark);font-size:17px;font-weight:700;margin-bottom:16px;">Preview & Send</h3>
+      ${previewHtml}
       <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px;">
         <div style="font-size:12px;color:var(--gray);margin-bottom:10px;font-weight:600;letter-spacing:1px;">SENDING TO (${count})</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -959,41 +1025,44 @@ function renderInviteStep() {
       </div>
       <div style="display:flex;gap:12px;">
         <button class="btn" onclick="inviteStep=2;renderInviteStep();" style="flex:1;padding:16px;background:var(--white);border:1.5px solid var(--border);color:var(--gray);border-radius:12px;font-size:14px;">← Back</button>
-        <button class="btn" onclick="sendInvites()" style="flex:2;padding:16px;background:#25D366;color:#fff;border-radius:12px;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.657 0-3.216-.5-4.51-1.355l-.315-.19-2.87.852.852-2.87-.19-.315A7.955 7.955 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
-          Send via WhatsApp
-        </button>
+        ${sendButtonHtml}
       </div>
     `;
   }
 }
 
 function toggleContact(id) {
-  const c = contacts.find(c => c.id === id);
+  const activeContacts = getActiveContacts();
+  const c = activeContacts.find(c => c.id === id);
   if (c) c.selected = !c.selected;
   renderInviteStep();
 }
 
 function toggleAll() {
-  const allSelected = contacts.every(c => c.selected);
-  contacts.forEach(c => c.selected = !allSelected);
+  const activeContacts = getActiveContacts();
+  const allSelected = activeContacts.every(c => c.selected);
+  activeContacts.forEach(c => c.selected = !allSelected);
   renderInviteStep();
 }
 
 function sendInvites() {
-  const selected = contacts.filter(c => c.selected);
+  const activeContacts = getActiveContacts();
+  const selected = activeContacts.filter(c => c.selected);
+  const platformLabel = selectedPlatform === 'telegram' ? 'Telegram' : 'WhatsApp';
   document.getElementById('invite-steps').classList.add('hidden');
   document.getElementById('invite-sent').classList.remove('hidden');
-  document.getElementById('sent-count-text').textContent = `${selected.length} contacts will receive your referral via WhatsApp.`;
+  document.getElementById('sent-count-text').textContent = `${selected.length} contacts will receive your referral via ${platformLabel}.`;
   document.getElementById('sent-contacts').innerHTML = selected.map(c =>
     `<span style="padding:6px 14px;background:var(--green-pale);border:1px solid #22C55E40;border-radius:20px;font-size:13px;color:var(--green);font-weight:600;">✓ ${c.name}</span>`
   ).join('');
 }
 
 function resetInvites() {
-  contacts.forEach(c => c.selected = false);
+  whatsappContacts.forEach(c => c.selected = false);
+  telegramContacts.forEach(c => c.selected = false);
   selectedTemplate = 1;
   inviteStep = 1;
+  selectedPlatform = 'whatsapp';
   document.getElementById('invite-sent').classList.add('hidden');
   document.getElementById('invite-steps').classList.remove('hidden');
   renderInviteStep();
@@ -1024,11 +1093,13 @@ function scrollPhones(direction) {
 
 // ═══ RESET DEMO ═══
 function resetDemo() {
-  // Reset contacts
-  contacts.forEach(c => c.selected = false);
+  // Reset contacts for both platforms
+  whatsappContacts.forEach(c => c.selected = false);
+  telegramContacts.forEach(c => c.selected = false);
   // Reset invite flow
   selectedTemplate = 1;
   inviteStep = 1;
+  selectedPlatform = 'whatsapp';
   document.getElementById('invite-sent').classList.add('hidden');
   document.getElementById('invite-steps').classList.remove('hidden');
   // Reset to dashboard tab
@@ -1043,20 +1114,6 @@ function resetDemo() {
 renderReferrals();
 renderInviteStep();
 renderFraudRules();
-
-// Autoplay voicemail on page load
-document.addEventListener('DOMContentLoaded', function() {
-  const audio = document.getElementById('voicemail');
-  if (audio) {
-    audio.play().catch(function() {
-      // Autoplay blocked - play on first user interaction
-      document.addEventListener('click', function playOnce() {
-        audio.play();
-        document.removeEventListener('click', playOnce);
-      }, { once: true });
-    });
-  }
-});
 </script>
 </body>
 </html>
