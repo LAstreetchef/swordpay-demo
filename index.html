@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwordPay Affiliate Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', -apple-system, sans-serif; background: #F8F9FC; color: #1A1A2E; }
+  :root {
+    --blue: #2E35A0; --blue-light: #4A50C7; --blue-pale: #E8E9F8;
+    --white: #FFFFFF; --off-white: #F8F9FC; --dark: #1A1A2E;
+    --gray: #6B7194; --gray-light: #B0B5CC; --border: #E2E4F0;
+    --green: #22C55E; --green-pale: #ECFDF5; --red: #EF4444; --red-pale: #FEF2F2;
+    --gold: #F59E0B; --gold-pale: #FFFBEB; --purple: #7C3AED; --purple-pale: #F3F0FF;
+  }
+  @keyframes popIn { 0% { transform: scale(0.9) translateY(20px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.4); } 50% { box-shadow: 0 0 0 8px rgba(124,58,237,0); } }
+  .btn { border: none; cursor: pointer; font-weight: 700; transition: all 0.2s ease; }
+  .btn:active { transform: scale(0.98); }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 1px 3px rgba(46,53,160,0.04); }
+  .hidden { display: none !important; }
+  #phone-carousel::-webkit-scrollbar { display: none; }
+</style>
+</head>
+<body>
+
+<!-- ═══ POPUP OVERLAY ═══ -->
+<div id="popup-overlay" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,26,46,0.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:100;padding:12px;">
+  <div style="background:#fff;border-radius:20px;max-width:440px;width:100%;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(46,53,160,0.18);animation:popIn 0.35s ease;">
+    <div style="height:4px;background:linear-gradient(90deg,var(--blue),var(--purple));flex-shrink:0;border-radius:20px 20px 0 0;"></div>
+    <div style="padding:24px 24px 16px;overflow-y:scroll;flex:1 1 auto;-webkit-overflow-scrolling:touch;min-height:0;">
+      <!-- Logo -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <svg width="22" height="29" viewBox="0 0 60 78" fill="none"><rect x="12" y="16" width="36" height="6" rx="1" fill="#2E35A0"/><rect x="27" y="0" width="6" height="22" rx="1" fill="#2E35A0"/><path d="M12 22 L12 56 L30 72" stroke="#2E35A0" stroke-width="6" fill="none" stroke-linejoin="round"/><path d="M48 22 L48 56 L30 72" stroke="#2E35A0" stroke-width="6" fill="none" stroke-linejoin="round"/><rect x="27" y="22" width="6" height="42" rx="1" fill="#2E35A0"/></svg>
+        <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:13px;color:#2E35A0;letter-spacing:4px;">SWORD</span>
+      </div>
+      <h2 style="font-size:22px;font-weight:700;color:#1A1A2E;margin-bottom:8px;font-family:'Playfair Display',Georgia,serif;">Hi Richard 👋</h2>
+      <p style="font-size:15px;color:#1A1A2E;line-height:1.6;margin-bottom:12px;font-weight:500;">What if every SwordPay user became a salesperson — <span style="color:#2E35A0;">and you only paid when they delivered?</span></p>
+      <p style="font-size:13px;color:#6B7194;line-height:1.6;margin-bottom:6px;">This affiliate model turns your ~10K users into a performance-based acquisition channel:</p>
+      <p style="font-size:12px;color:#2E35A0;line-height:1.5;margin-bottom:16px;font-style:italic;">Referred customers show 18% higher LTV and 25% higher margins than paid acquisition — Wharton research (Schmitt et al., 2011)</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+        <div style="display:flex;gap:12px;padding:12px 14px;background:#F8F9FC;border-radius:10px;border:1px solid #E2E4F0;">
+          <span style="font-size:20px;flex-shrink:0;">🎯</span>
+          <div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:2px;">Pay for Results, Not Clicks</div><div style="font-size:12px;color:#6B7194;line-height:1.5;">$5 per converted user — only after they complete a real transaction. Zero wasted spend.</div></div>
+        </div>
+        <div style="display:flex;gap:12px;padding:12px 14px;background:#F8F9FC;border-radius:10px;border:1px solid #E2E4F0;">
+          <span style="font-size:20px;flex-shrink:0;">🔄</span>
+          <div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:2px;">Built-in Viral Loop</div><div style="font-size:12px;color:#6B7194;line-height:1.5;">WhatsApp-native sharing meets residual income. Users don't just refer once — they build networks.</div></div>
+        </div>
+        <div style="display:flex;gap:12px;padding:12px 14px;background:#F8F9FC;border-radius:10px;border:1px solid #E2E4F0;">
+          <span style="font-size:20px;flex-shrink:0;">⚔️</span>
+          <div><div style="font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:2px;">Affiliates, Not Just Referrers</div><div style="font-size:12px;color:#6B7194;line-height:1.5;">Top performers unlock ongoing revenue share. They're invested in SwordPay's success long-term.</div></div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:#6B7194;line-height:1.6;">Explore the <strong style="color:#1A1A2E;">Send Invites</strong> flow to see the user experience. Check <strong style="color:#1A1A2E;">Admin</strong> for program controls and metrics.</p>
+    </div>
+    <div style="padding:12px 24px 20px;border-top:1px solid #E2E4F0;flex-shrink:0;background:#fff;border-radius:0 0 20px 20px;">
+      <button class="btn" onclick="document.getElementById('popup-overlay').classList.add('hidden')" style="width:100%;padding:14px;background:#2E35A0;color:#fff;border-radius:12px;font-size:15px;letter-spacing:0.5px;box-shadow:0 4px 16px #2E35A040;">Explore the Demo →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ HEADER ═══ -->
+<div style="border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;background:var(--white);position:sticky;top:0;z-index:10;box-shadow:0 1px 4px rgba(46,53,160,0.06);">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <svg width="28" height="36" viewBox="0 0 60 78" fill="none"><rect x="12" y="16" width="36" height="6" rx="1" fill="#2E35A0"/><rect x="27" y="0" width="6" height="22" rx="1" fill="#2E35A0"/><path d="M12 22 L12 56 L30 72" stroke="#2E35A0" stroke-width="6" fill="none" stroke-linejoin="round"/><path d="M48 22 L48 56 L30 72" stroke="#2E35A0" stroke-width="6" fill="none" stroke-linejoin="round"/><rect x="27" y="22" width="6" height="42" rx="1" fill="#2E35A0"/></svg>
+    <span style="font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:17px;color:#2E35A0;letter-spacing:4px;">SWORD</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <button onclick="resetDemo()" class="btn" style="padding:6px 14px;background:var(--off-white);border:1px solid var(--border);border-radius:8px;font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px;">↺ Reset Demo</button>
+    <span style="padding:6px 14px;background:var(--purple-pale);border-radius:20px;font-size:11px;color:var(--purple);font-weight:700;letter-spacing:1.5px;">AFFILIATE PROGRAM</span>
+  </div>
+</div>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<div style="max-width:720px;margin:0 auto;padding:0 20px 40px;">
+
+  <!-- Tabs -->
+  <div id="tabs" style="display:flex;gap:4px;margin:24px 0;background:var(--white);border-radius:14px;padding:4px;border:1px solid var(--border);box-shadow:0 1px 3px rgba(46,53,160,0.04);">
+    <button class="btn tab-btn" data-tab="inapp" onclick="switchTab('inapp')" style="flex:1;padding:12px 16px;background:var(--blue);color:var(--white);border-radius:10px;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px;">📱 In-App</button>
+    <button class="btn tab-btn" data-tab="dashboard" onclick="switchTab('dashboard')" style="flex:1;padding:12px 16px;background:transparent;color:var(--gray);border-radius:10px;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px;">📊 Dashboard</button>
+    <button class="btn tab-btn" data-tab="invite" onclick="switchTab('invite')" style="flex:1;padding:12px 16px;background:transparent;color:var(--gray);border-radius:10px;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px;">📨 Send Invites</button>
+    <button class="btn tab-btn" data-tab="admin" onclick="switchTab('admin')" style="flex:1;padding:12px 16px;background:transparent;color:var(--gray);border-radius:10px;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px;">💰 $ Intelligence</button>
+  </div>
+
+  <!-- ═══ DASHBOARD TAB ═══ -->
+  <div id="tab-dashboard" class="hidden">
+    <div style="margin-bottom:28px;">
+      <h2 style="font-size:22px;font-weight:700;color:var(--dark);font-family:'Playfair Display',Georgia,serif;">Affiliate Dashboard</h2>
+      <p style="color:var(--gray);font-size:14px;margin-top:6px;">Earn <span style="color:var(--blue);font-weight:700;">$5.00</span> per signup + <span style="color:var(--purple);font-weight:700;">residual payments</span> as an affiliate.</p>
+    </div>
+
+    <!-- Affiliate Progress -->
+    <div style="background:linear-gradient(135deg,var(--purple-pale),var(--blue-pale));border:1.5px solid var(--purple);border-radius:16px;padding:24px;margin-bottom:24px;box-shadow:0 1px 3px rgba(46,53,160,0.04);">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div>
+          <div style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:4px;">Your Status</div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:20px;font-weight:700;color:var(--dark);font-family:'Playfair Display',Georgia,serif;">Affiliate Partner</span>
+            <span style="padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;background:var(--purple-pale);color:var(--purple);border:1px solid #7C3AED40;letter-spacing:0.5px;">⚔️ Affiliate</span>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:28px;font-weight:700;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">3/3</div>
+          <div style="font-size:12px;color:var(--gray);">conversions</div>
+        </div>
+      </div>
+      <div style="background:var(--border);border-radius:8px;height:10px;overflow:hidden;margin-bottom:14px;">
+        <div style="width:100%;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--purple),var(--blue));"></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#FFFFFF90;border-radius:12px;">
+        <span style="font-size:24px;">💎</span>
+        <div>
+          <div style="font-size:14px;font-weight:700;color:var(--purple);">Residual Payments Unlocked</div>
+          <div style="font-size:13px;color:var(--gray);margin-top:2px;">You earn a percentage of every transaction your referrals make — ongoing, every month.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px;">
+      <div class="card" style="padding:22px 20px;flex:1;min-width:140px;">
+        <div style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:600;">Signup Bonuses</div>
+        <div style="font-size:30px;font-weight:700;color:var(--green);font-family:'Playfair Display',Georgia,serif;">$15.00</div>
+        <div style="font-size:13px;color:var(--gray-light);margin-top:4px;">3 conversions × $5</div>
+      </div>
+      <div class="card" style="padding:22px 20px;flex:1;min-width:140px;">
+        <div style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:600;">Residual Earned</div>
+        <div style="font-size:30px;font-weight:700;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">$9.45</div>
+        <div style="font-size:13px;color:var(--gray-light);margin-top:4px;">Ongoing monthly</div>
+      </div>
+      <div class="card" style="padding:22px 20px;flex:1;min-width:140px;">
+        <div style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:600;">Total Earned</div>
+        <div style="font-size:30px;font-weight:700;color:var(--blue);font-family:'Playfair Display',Georgia,serif;">$24.45</div>
+        <div style="font-size:13px;color:var(--gray-light);margin-top:4px;">All time</div>
+      </div>
+      <div class="card" style="padding:22px 20px;flex:1;min-width:140px;">
+        <div style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:600;">Conv. Rate</div>
+        <div style="font-size:30px;font-weight:700;color:var(--blue);font-family:'Playfair Display',Georgia,serif;">25%</div>
+        <div style="font-size:13px;color:var(--gray-light);margin-top:4px;">12 invites sent</div>
+      </div>
+    </div>
+
+    <!-- Residual Payments -->
+    <div class="card" style="overflow:hidden;margin-bottom:24px;">
+      <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-weight:700;color:var(--dark);font-size:15px;">Residual Payments</span>
+          <span style="padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:var(--purple-pale);color:var(--purple);letter-spacing:0.5px;">AFFILIATE</span>
+        </div>
+        <span style="font-size:13px;color:var(--gray);">0.5% of referral transactions</span>
+      </div>
+      <div style="display:flex;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);">
+        <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">January 2026</div><div style="font-size:12px;color:var(--gray-light);">18 referral transactions</div></div>
+        <div style="font-weight:700;font-size:16px;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">+$4.45</div>
+      </div>
+      <div style="display:flex;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);">
+        <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">December 2025</div><div style="font-size:12px;color:var(--gray-light);">12 referral transactions</div></div>
+        <div style="font-weight:700;font-size:16px;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">+$3.20</div>
+      </div>
+      <div style="display:flex;align-items:center;padding:14px 20px;">
+        <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">November 2025</div><div style="font-size:12px;color:var(--gray-light);">7 referral transactions</div></div>
+        <div style="font-weight:700;font-size:16px;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">+$1.80</div>
+      </div>
+    </div>
+
+    <!-- Notifications Preview -->
+    <div class="card" style="overflow:hidden;margin-bottom:24px;">
+      <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-weight:700;color:var(--dark);font-size:15px;">Recent Notifications</span>
+        <span style="font-size:12px;color:var(--gray-light);">Push + In-App</span>
+      </div>
+      <div style="padding:14px 20px;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:36px;height:36px;border-radius:10px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🎉</div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:600;color:var(--dark);">James W. just signed up!</div>
+          <div style="font-size:13px;color:var(--gray);margin-top:2px;">$5.00 bonus pending — releases after first transaction</div>
+          <div style="font-size:11px;color:var(--gray-light);margin-top:4px;">2 hours ago</div>
+        </div>
+      </div>
+      <div style="padding:14px 20px;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:36px;height:36px;border-radius:10px;background:var(--purple-pale);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">💰</div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:600;color:var(--dark);">Residual payment received</div>
+          <div style="font-size:13px;color:var(--gray);margin-top:2px;">You earned <strong style="color:var(--purple);">$4.45</strong> from January referral activity</div>
+          <div style="font-size:11px;color:var(--gray-light);margin-top:4px;">Yesterday</div>
+        </div>
+      </div>
+      <div style="padding:14px 20px;display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:36px;height:36px;border-radius:10px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✅</div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:600;color:var(--dark);">Bonus released!</div>
+          <div style="font-size:13px;color:var(--gray);margin-top:2px;">Maria L. completed a transaction — <strong style="color:var(--green);">$5.00 added</strong> to your wallet</div>
+          <div style="font-size:11px;color:var(--gray-light);margin-top:4px;">3 days ago</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Referrals -->
+    <div class="card" style="overflow:hidden;">
+      <div style="padding:16px 20px;border-bottom:1px solid var(--border);"><span style="font-weight:700;color:var(--dark);font-size:15px;">Your Referrals</span></div>
+      <div id="referrals-list"></div>
+    </div>
+  </div>
+
+  <!-- ═══ SEND INVITES TAB ═══ -->
+  <div id="tab-invite" class="hidden">
+    <div id="invite-steps"></div>
+    <div id="invite-sent" class="hidden" style="text-align:center;padding:40px 20px;">
+      <div style="width:80px;height:80px;border-radius:40px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;">⚔️</div>
+      <h2 style="font-size:24px;font-weight:700;color:var(--blue);margin-bottom:10px;font-family:'Playfair Display',Georgia,serif;">Invites Sent!</h2>
+      <p style="color:var(--gray);font-size:15px;max-width:380px;margin:0 auto 8px;" id="sent-count-text"></p>
+      <p style="color:var(--purple);font-size:14px;font-weight:600;max-width:380px;margin:0 auto 24px;">As an affiliate, you'll earn $5 per signup + ongoing residual payments from their transactions.</p>
+      <div id="sent-contacts" style="display:inline-flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:24px;"></div>
+      
+      <!-- What Happens Next -->
+      <div style="max-width:400px;margin:0 auto 28px;background:var(--off-white);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:left;">
+        <div style="font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;text-align:center;">What Happens Next</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:24px;height:24px;border-radius:12px;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">1</div>
+            <div style="font-size:13px;color:var(--gray);line-height:1.5;"><strong style="color:var(--dark);">Contact clicks your link</strong> — opens SwordPay signup with your referral tracked</div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:24px;height:24px;border-radius:12px;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">2</div>
+            <div style="font-size:13px;color:var(--gray);line-height:1.5;"><strong style="color:var(--dark);">They complete first transaction</strong> — you get notified instantly</div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:24px;height:24px;border-radius:12px;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;">$</div>
+            <div style="font-size:13px;color:var(--gray);line-height:1.5;"><strong style="color:var(--green);">$5 credited to your wallet</strong> — plus ongoing residual if you're an affiliate</div>
+          </div>
+        </div>
+      </div>
+      
+      <div><button class="btn" onclick="resetInvites()" style="padding:14px 32px;background:var(--blue);color:var(--white);border-radius:10px;font-size:15px;">Send More Invites</button></div>
+    </div>
+  </div>
+
+  <!-- ═══ IN-APP TAB ═══ -->
+  <div id="tab-inapp">
+    <div style="margin-bottom:28px;">
+      <h2 style="font-size:22px;font-weight:700;color:var(--dark);font-family:'Playfair Display',Georgia,serif;">In-App Integration</h2>
+      <p style="color:var(--gray);font-size:14px;margin-top:6px;">How the affiliate program lives inside SwordPay — minimal UI changes, maximum impact.</p>
+    </div>
+
+    <!-- Phone Mockups Row -->
+    <div style="position:relative;margin-bottom:32px;">
+      <!-- Left Arrow -->
+      <button onclick="scrollPhones(-1)" class="btn" style="position:absolute;left:-10px;top:50%;transform:translateY(-50%);z-index:10;width:40px;height:40px;border-radius:20px;background:var(--white);border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--gray);">←</button>
+      <!-- Right Arrow -->
+      <button onclick="scrollPhones(1)" class="btn" style="position:absolute;right:-10px;top:50%;transform:translateY(-50%);z-index:10;width:40px;height:40px;border-radius:20px;background:var(--white);border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--gray);">→</button>
+    <div id="phone-carousel" style="display:flex;gap:20px;justify-content:center;flex-wrap:nowrap;overflow-x:auto;scroll-behavior:smooth;padding:10px 30px;-ms-overflow-style:none;scrollbar-width:none;">
+      
+      <!-- Phone 1: Home Screen -->
+      <div style="text-align:center;">
+        <div style="font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Entry Point</div>
+        <div style="width:220px;height:440px;background:#1A1A2E;border-radius:28px;padding:8px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+          <div style="width:100%;height:100%;background:#0D0D1A;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;">
+            <!-- Status Bar -->
+            <div style="padding:8px 16px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:10px;color:#fff;font-weight:600;">9:41</span>
+              <div style="display:flex;gap:4px;">
+                <div style="width:14px;height:8px;border:1px solid #fff;border-radius:2px;position:relative;"><div style="position:absolute;right:-2px;top:2px;width:1px;height:4px;background:#fff;border-radius:1px;"></div><div style="position:absolute;left:1px;top:1px;bottom:1px;right:4px;background:#22C55E;border-radius:1px;"></div></div>
+              </div>
+            </div>
+            <!-- Header -->
+            <div style="padding:12px 16px;display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <div style="font-size:11px;color:#6B7194;">Good morning</div>
+                <div style="font-size:16px;color:#fff;font-weight:700;">Alex</div>
+              </div>
+              <div style="width:32px;height:32px;border-radius:16px;background:var(--blue);display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="18" viewBox="0 0 60 78" fill="none"><rect x="12" y="16" width="36" height="6" rx="1" fill="#fff"/><rect x="27" y="0" width="6" height="22" rx="1" fill="#fff"/><path d="M12 22 L12 56 L30 72" stroke="#fff" stroke-width="6" fill="none" stroke-linejoin="round"/><path d="M48 22 L48 56 L30 72" stroke="#fff" stroke-width="6" fill="none" stroke-linejoin="round"/><rect x="27" y="22" width="6" height="42" rx="1" fill="#fff"/></svg>
+              </div>
+            </div>
+            <!-- Balance Card -->
+            <div style="margin:8px 12px;padding:16px;background:linear-gradient(135deg,#2E35A0,#7C3AED);border-radius:14px;">
+              <div style="font-size:10px;color:#ffffff90;margin-bottom:4px;">Total Balance</div>
+              <div style="font-size:24px;color:#fff;font-weight:700;">$2,847.50</div>
+            </div>
+            <!-- Quick Actions -->
+            <div style="display:flex;gap:8px;padding:0 12px;margin-bottom:12px;">
+              <div style="flex:1;padding:12px 8px;background:#1E1E32;border-radius:10px;text-align:center;">
+                <div style="font-size:16px;margin-bottom:2px;">↑</div>
+                <div style="font-size:9px;color:#6B7194;">Send</div>
+              </div>
+              <div style="flex:1;padding:12px 8px;background:#1E1E32;border-radius:10px;text-align:center;">
+                <div style="font-size:16px;margin-bottom:2px;">↓</div>
+                <div style="font-size:9px;color:#6B7194;">Request</div>
+              </div>
+              <div style="flex:1;padding:12px 8px;background:#1E1E32;border-radius:10px;text-align:center;">
+                <div style="font-size:16px;margin-bottom:2px;">📊</div>
+                <div style="font-size:9px;color:#6B7194;">Crypto</div>
+              </div>
+            </div>
+            <!-- AFFILIATE ENTRY POINT -->
+            <div style="margin:0 12px;padding:14px;background:linear-gradient(135deg,#7C3AED20,#2E35A020);border:1.5px solid #7C3AED;border-radius:12px;display:flex;align-items:center;gap:10px;animation:pulse 2s infinite;">
+              <div style="font-size:20px;">⚔️</div>
+              <div style="flex:1;">
+                <div style="font-size:12px;color:#fff;font-weight:700;">Earn with Referrals</div>
+                <div style="font-size:10px;color:#7C3AED;">$24.45 earned · Tap to share</div>
+              </div>
+              <div style="font-size:14px;color:#7C3AED;">→</div>
+            </div>
+            <!-- Bottom Nav -->
+            <div style="margin-top:auto;padding:12px 20px;display:flex;justify-content:space-around;border-top:1px solid #1E1E32;">
+              <div style="text-align:center;"><div style="font-size:14px;">🏠</div><div style="font-size:8px;color:#fff;margin-top:2px;">Home</div></div>
+              <div style="text-align:center;"><div style="font-size:14px;">💬</div><div style="font-size:8px;color:#6B7194;margin-top:2px;">Chat</div></div>
+              <div style="text-align:center;"><div style="font-size:14px;">👤</div><div style="font-size:8px;color:#6B7194;margin-top:2px;">Profile</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;font-size:11px;color:var(--gray);max-width:200px;">Prominent banner on home screen shows earnings & invites action</div>
+      </div>
+
+      <!-- Phone 2: Affiliate Hub -->
+      <div style="text-align:center;">
+        <div style="font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Affiliate Hub</div>
+        <div style="width:220px;height:440px;background:#1A1A2E;border-radius:28px;padding:8px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+          <div style="width:100%;height:100%;background:#0D0D1A;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;">
+            <!-- Status Bar -->
+            <div style="padding:8px 16px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:10px;color:#fff;font-weight:600;">9:41</span>
+              <div style="display:flex;gap:4px;">
+                <div style="width:14px;height:8px;border:1px solid #fff;border-radius:2px;position:relative;"><div style="position:absolute;right:-2px;top:2px;width:1px;height:4px;background:#fff;border-radius:1px;"></div><div style="position:absolute;left:1px;top:1px;bottom:1px;right:4px;background:#22C55E;border-radius:1px;"></div></div>
+              </div>
+            </div>
+            <!-- Header -->
+            <div style="padding:12px 16px;display:flex;align-items:center;gap:10px;">
+              <span style="font-size:16px;color:#6B7194;">←</span>
+              <span style="font-size:15px;color:#fff;font-weight:700;">Referral Program</span>
+            </div>
+            <!-- Stats -->
+            <div style="display:flex;gap:8px;padding:0 12px;margin-bottom:12px;">
+              <div style="flex:1;padding:12px 10px;background:#1E1E32;border-radius:10px;text-align:center;">
+                <div style="font-size:18px;color:#22C55E;font-weight:700;">$15</div>
+                <div style="font-size:9px;color:#6B7194;">Bonuses</div>
+              </div>
+              <div style="flex:1;padding:12px 10px;background:#1E1E32;border-radius:10px;text-align:center;">
+                <div style="font-size:18px;color:#7C3AED;font-weight:700;">$9.45</div>
+                <div style="font-size:9px;color:#6B7194;">Residual</div>
+              </div>
+            </div>
+            <!-- Affiliate Badge -->
+            <div style="margin:0 12px 12px;padding:12px;background:linear-gradient(135deg,#7C3AED30,#7C3AED10);border:1px solid #7C3AED50;border-radius:10px;display:flex;align-items:center;gap:10px;">
+              <span style="font-size:18px;">⚔️</span>
+              <div>
+                <div style="font-size:11px;color:#7C3AED;font-weight:700;">AFFILIATE STATUS</div>
+                <div style="font-size:9px;color:#6B7194;">Earning 0.5% on referral txns</div>
+              </div>
+            </div>
+            <!-- Referral Link -->
+            <div style="margin:0 12px 12px;padding:12px;background:#1E1E32;border-radius:10px;">
+              <div style="font-size:10px;color:#6B7194;margin-bottom:6px;">Your referral link</div>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <div style="flex:1;font-size:11px;color:#fff;background:#0D0D1A;padding:8px;border-radius:6px;overflow:hidden;text-overflow:ellipsis;">sword.me/ref/alex847</div>
+                <div style="padding:8px 12px;background:var(--blue);border-radius:6px;font-size:10px;color:#fff;font-weight:600;">Copy</div>
+              </div>
+            </div>
+            <!-- Share Button -->
+            <div style="margin:0 12px;padding:14px;background:#25D366;border-radius:10px;text-align:center;">
+              <span style="font-size:13px;color:#fff;font-weight:700;">📨 Invite via WhatsApp</span>
+            </div>
+            <!-- Recent -->
+            <div style="margin:12px;flex:1;">
+              <div style="font-size:10px;color:#6B7194;margin-bottom:8px;">Recent Referrals</div>
+              <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #1E1E32;">
+                <div style="width:24px;height:24px;border-radius:12px;background:#2E35A030;color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;">JW</div>
+                <div style="flex:1;font-size:11px;color:#fff;">James W.</div>
+                <div style="font-size:10px;color:#22C55E;font-weight:600;">+$5</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:8px 0;">
+                <div style="width:24px;height:24px;border-radius:12px;background:#2E35A030;color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;">ML</div>
+                <div style="flex:1;font-size:11px;color:#fff;">Maria L.</div>
+                <div style="font-size:10px;color:#22C55E;font-weight:600;">+$5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;font-size:11px;color:var(--gray);max-width:200px;">Dedicated hub shows stats, link, and one-tap WhatsApp sharing</div>
+      </div>
+
+      <!-- Phone 3: Share Sheet -->
+      <div style="text-align:center;">
+        <div style="font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Share Flow</div>
+        <div style="width:220px;height:440px;background:#1A1A2E;border-radius:28px;padding:8px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+          <div style="width:100%;height:100%;background:#0D0D1A;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
+            <!-- Dimmed Background -->
+            <div style="flex:1;opacity:0.3;padding:16px;">
+              <div style="height:20px;background:#1E1E32;border-radius:4px;margin-bottom:8px;"></div>
+              <div style="height:60px;background:#1E1E32;border-radius:8px;margin-bottom:8px;"></div>
+              <div style="height:40px;background:#1E1E32;border-radius:8px;"></div>
+            </div>
+            <!-- Share Sheet -->
+            <div style="position:absolute;bottom:0;left:0;right:0;background:#1E1E32;border-radius:16px 16px 22px 22px;padding:16px;">
+              <div style="width:32px;height:4px;background:#6B7194;border-radius:2px;margin:0 auto 14px;"></div>
+              <div style="font-size:13px;color:#fff;font-weight:700;text-align:center;margin-bottom:4px;">Share Your Link</div>
+              <div style="font-size:10px;color:#6B7194;text-align:center;margin-bottom:16px;">Earn $5 when friends sign up & transact</div>
+              <!-- Contact Pills -->
+              <div style="display:flex;gap:12px;justify-content:center;margin-bottom:16px;">
+                <div style="text-align:center;">
+                  <div style="width:44px;height:44px;border-radius:22px;background:#25D366;display:flex;align-items:center;justify-content:center;margin-bottom:4px;font-size:20px;">📱</div>
+                  <div style="font-size:9px;color:#6B7194;">WhatsApp</div>
+                </div>
+                <div style="text-align:center;">
+                  <div style="width:44px;height:44px;border-radius:22px;background:#1DA1F2;display:flex;align-items:center;justify-content:center;margin-bottom:4px;font-size:20px;">🐦</div>
+                  <div style="font-size:9px;color:#6B7194;">Twitter</div>
+                </div>
+                <div style="text-align:center;">
+                  <div style="width:44px;height:44px;border-radius:22px;background:#0088cc;display:flex;align-items:center;justify-content:center;margin-bottom:4px;font-size:20px;">✈️</div>
+                  <div style="font-size:9px;color:#6B7194;">Telegram</div>
+                </div>
+                <div style="text-align:center;">
+                  <div style="width:44px;height:44px;border-radius:22px;background:#6B7194;display:flex;align-items:center;justify-content:center;margin-bottom:4px;font-size:20px;">📋</div>
+                  <div style="font-size:9px;color:#6B7194;">Copy</div>
+                </div>
+              </div>
+              <!-- Preview -->
+              <div style="background:#0D0D1A;border-radius:10px;padding:12px;">
+                <div style="font-size:10px;color:#6B7194;margin-bottom:6px;">Message preview</div>
+                <div style="font-size:11px;color:#fff;line-height:1.5;">"Hey! I've been using SwordPay — zero fees, instant transfers. Use my link and we both get $5 💰"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;font-size:11px;color:var(--gray);max-width:200px;">Native share sheet with pre-written message & multiple channels</div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Integration Points -->
+    <div class="card" style="padding:24px;margin-bottom:24px;">
+      <h3 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:18px;">Integration Touchpoints</h3>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:32px;height:32px;border-radius:8px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🏠</div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:var(--dark);">Home Screen Banner</div>
+            <div style="font-size:13px;color:var(--gray);line-height:1.5;">Persistent but non-intrusive. Shows current earnings + "Invite" CTA. Disappears if user dismisses (reappears monthly).</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:32px;height:32px;border-radius:8px;background:var(--purple-pale);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">👤</div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:var(--dark);">Profile Menu Item</div>
+            <div style="font-size:13px;color:var(--gray);line-height:1.5;">"Referral Program" in profile/settings. Badge shows pending earnings. Links to full affiliate dashboard.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:32px;height:32px;border-radius:8px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">✅</div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:var(--dark);">Post-Transaction Prompt</div>
+            <div style="font-size:13px;color:var(--gray);line-height:1.5;">After successful send/receive: "Know someone who'd love SwordPay? Earn $5 for each friend." Non-blocking modal.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:32px;height:32px;border-radius:8px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🔔</div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:var(--dark);">Push Notifications</div>
+            <div style="font-size:13px;color:var(--gray);line-height:1.5;">Signup alerts, conversion confirmations, monthly residual summaries. Keeps affiliates engaged without spam.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Requirements -->
+    <div class="card" style="padding:24px;">
+      <h3 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:18px;">Technical Implementation</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;padding:16px;background:var(--off-white);border-radius:12px;border:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:8px;">Frontend</div>
+          <ul style="font-size:13px;color:var(--gray);line-height:1.8;padding-left:16px;margin:0;">
+            <li>New "Referral" screen (React Native / Flutter)</li>
+            <li>Home banner component</li>
+            <li>Share sheet integration</li>
+            <li>Notification handlers</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:200px;padding:16px;background:var(--off-white);border-radius:12px;border:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:700;color:var(--purple);margin-bottom:8px;">Backend</div>
+          <ul style="font-size:13px;color:var(--gray);line-height:1.8;padding-left:16px;margin:0;">
+            <li>Referral link generation + tracking</li>
+            <li>Attribution on signup (30-day window)</li>
+            <li>Transaction webhook → payout trigger</li>
+            <li>Monthly residual calculation job</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:200px;padding:16px;background:var(--off-white);border-radius:12px;border:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px;">Timeline</div>
+          <ul style="font-size:13px;color:var(--gray);line-height:1.8;padding-left:16px;margin:0;">
+            <li><strong>Week 1-2:</strong> Backend + tracking</li>
+            <li><strong>Week 3:</strong> App UI integration</li>
+            <li><strong>Week 4:</strong> Testing + soft launch</li>
+            <li><strong>Ongoing:</strong> Admin dashboard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ADMIN TAB ═══ -->
+  <div id="tab-admin" class="hidden">
+    <div style="margin-bottom:28px;">
+      <h2 style="font-size:22px;font-weight:700;color:var(--dark);font-family:'Playfair Display',Georgia,serif;">$ Intelligence</h2>
+      <p style="color:var(--gray);font-size:14px;margin-top:6px;">Unit economics, projections, and program controls.</p>
+    </div>
+
+    <!-- SwordPay Current State -->
+    <div class="card" style="padding:20px;margin-bottom:24px;border:1.5px solid var(--blue);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <svg width="20" height="26" viewBox="0 0 60 78" fill="none"><rect x="12" y="16" width="36" height="6" rx="1" fill="#2E35A0"/><rect x="27" y="0" width="6" height="22" rx="1" fill="#2E35A0"/><path d="M12 22 L12 56 L30 72" stroke="#2E35A0" stroke-width="6" fill="none" stroke-linejoin="round"/><path d="M48 22 L48 56 L30 72" stroke="#2E35A0" stroke-width="6" fill="none" stroke-linejoin="round"/><rect x="27" y="22" width="6" height="42" rx="1" fill="#2E35A0"/></svg>
+        <h3 style="font-size:15px;font-weight:700;color:var(--dark);">SwordPay Current State</h3>
+        <span style="padding:3px 8px;background:var(--blue-pale);border-radius:4px;font-size:10px;color:var(--blue);font-weight:600;">PUBLIC DATA</span>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;">
+        <div style="flex:1;min-width:120px;padding:14px;background:var(--off-white);border-radius:10px;text-align:center;">
+          <div style="font-size:24px;font-weight:700;color:var(--blue);font-family:'Playfair Display',Georgia,serif;">10K+</div>
+          <div style="font-size:11px;color:var(--gray);">App Downloads</div>
+          <div style="font-size:10px;color:var(--gray-light);">Google Play</div>
+        </div>
+        <div style="flex:1;min-width:120px;padding:14px;background:var(--off-white);border-radius:10px;text-align:center;">
+          <div style="font-size:24px;font-weight:700;color:var(--blue);font-family:'Playfair Display',Georgia,serif;">2019</div>
+          <div style="font-size:11px;color:var(--gray);">Founded</div>
+          <div style="font-size:10px;color:var(--gray-light);">London, ON</div>
+        </div>
+        <div style="flex:1;min-width:120px;padding:14px;background:var(--off-white);border-radius:10px;text-align:center;">
+          <div style="font-size:24px;font-weight:700;color:var(--green);font-family:'Playfair Display',Georgia,serif;">Bootstrap</div>
+          <div style="font-size:11px;color:var(--gray);">Funding Status</div>
+          <div style="font-size:10px;color:var(--gray-light);">Capital efficient</div>
+        </div>
+        <div style="flex:1;min-width:120px;padding:14px;background:var(--off-white);border-radius:10px;text-align:center;">
+          <div style="font-size:24px;font-weight:700;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">19</div>
+          <div style="font-size:11px;color:var(--gray);">Languages</div>
+          <div style="font-size:10px;color:var(--gray-light);">Global reach</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <span style="padding:5px 12px;background:var(--blue-pale);border-radius:20px;font-size:11px;color:var(--blue);font-weight:500;">P2P Payments</span>
+        <span style="padding:5px 12px;background:var(--purple-pale);border-radius:20px;font-size:11px;color:var(--purple);font-weight:500;">350+ Crypto Assets</span>
+        <span style="padding:5px 12px;background:var(--green-pale);border-radius:20px;font-size:11px;color:var(--green);font-weight:500;">Encrypted Chat</span>
+        <span style="padding:5px 12px;background:var(--gold-pale);border-radius:20px;font-size:11px;color:var(--gold);font-weight:500;">FileShare</span>
+        <span style="padding:5px 12px;background:var(--off-white);border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--gray);font-weight:500;">No Monthly Fees</span>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:11px;color:var(--gray-light);">Sources: Google Play Store, Apple App Store, Tracxn, swordpay.com</div>
+    </div>
+
+    <!-- Assumptions Box -->
+    <div style="background:var(--off-white);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:14px;">📐</span>
+        <span style="font-size:12px;font-weight:700;color:var(--dark);">Model Assumptions</span>
+        <span style="padding:3px 8px;background:var(--blue-pale);border-radius:4px;font-size:10px;color:var(--blue);font-weight:600;">Based on ~10K current users</span>
+      </div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--gray);">
+        <div><strong style="color:var(--dark);">MAU:</strong> 1,500 (15% of installs)</div>
+        <div><strong style="color:var(--dark);">Referrer participation:</strong> 20% of MAU</div>
+        <div><strong style="color:var(--dark);">Invite→Signup:</strong> 15%</div>
+        <div><strong style="color:var(--dark);">Signup→Transact:</strong> 60%</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <span style="font-size:13px;font-weight:600;color:var(--dark);">Program Metrics</span>
+      <span style="padding:4px 10px;background:var(--gold-pale);border:1px solid #F59E0B40;border-radius:6px;font-size:10px;color:var(--gold);font-weight:700;letter-spacing:0.5px;">90-DAY PROJECTION</span>
+    </div>
+
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px;">
+      <div class="card" style="padding:22px 20px;flex:1;min-width:140px;">
+        <div style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:600;">New Users</div>
+        <div style="font-size:30px;font-weight:700;color:var(--green);font-family:'Playfair Display',Georgia,serif;">75</div>
+        <div style="font-size:13px;color:var(--gray-light);margin-top:4px;">Converted referrals</div>
+      </div>
+      <div class="card" style="padding:22px 20px;flex:1;min-width:140px;">
+        <div style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:600;">Active Affiliates</div>
+        <div style="font-size:30px;font-weight:700;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">12</div>
+        <div style="font-size:13px;color:var(--gray-light);margin-top:4px;">3+ conversions each</div>
+      </div>
+      <div class="card" style="padding:22px 20px;flex:1;min-width:140px;">
+        <div style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:600;">Bonus Payouts</div>
+        <div style="font-size:30px;font-weight:700;color:var(--blue);font-family:'Playfair Display',Georgia,serif;">$375</div>
+        <div style="font-size:13px;color:var(--gray-light);margin-top:4px;">75 × $5 one-time</div>
+      </div>
+      <div class="card" style="padding:22px 20px;flex:1;min-width:140px;">
+        <div style="font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:600;">Residual Est.</div>
+        <div style="font-size:30px;font-weight:700;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">$95</div>
+        <div style="font-size:13px;color:var(--gray-light);margin-top:4px;">Monthly @ 0.5%</div>
+      </div>
+    </div>
+
+    <!-- ROI Summary -->
+    <div class="card" style="padding:20px;margin-bottom:28px;background:linear-gradient(135deg,var(--green-pale),#fff);">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div style="font-size:12px;color:var(--gray);margin-bottom:4px;">Total 90-Day Program Cost</div>
+          <div style="font-size:28px;font-weight:700;color:var(--dark);font-family:'Playfair Display',Georgia,serif;">~$470</div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--gray);margin-bottom:4px;">Effective CAC</div>
+          <div style="font-size:28px;font-weight:700;color:var(--green);font-family:'Playfair Display',Georgia,serif;">$6.27</div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--gray);margin-bottom:4px;">vs. Paid Ads ($50 CAC)</div>
+          <div style="font-size:28px;font-weight:700;color:var(--blue);font-family:'Playfair Display',Georgia,serif;">87% savings</div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--gray);margin-bottom:4px;">User Base Growth</div>
+          <div style="font-size:28px;font-weight:700;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">+7.5%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why This Works - ROI Section -->
+    <div class="card" style="padding:24px;margin-bottom:24px;background:linear-gradient(135deg,#F8F9FC,#E8E9F8);border:1.5px solid var(--blue);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+        <span style="font-size:24px;">📊</span>
+        <h3 style="font-size:17px;font-weight:700;color:var(--dark);font-family:'Playfair Display',Georgia,serif;">Unit Economics: Why This Works</h3>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
+        <div style="flex:1;min-width:200px;background:var(--white);border-radius:12px;padding:18px;border:1px solid var(--border);">
+          <div style="font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Fintech Paid CAC</div>
+          <div style="font-size:28px;font-weight:700;color:var(--red);font-family:'Playfair Display',Georgia,serif;text-decoration:line-through;opacity:0.7;">$30-75</div>
+          <div style="font-size:12px;color:var(--gray-light);">industry avg (Appsflyer 2025)</div>
+        </div>
+        <div style="flex:1;min-width:200px;background:var(--white);border-radius:12px;padding:18px;border:1px solid var(--green);">
+          <div style="font-size:12px;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:600;">Affiliate CAC</div>
+          <div style="font-size:28px;font-weight:700;color:var(--green);font-family:'Playfair Display',Georgia,serif;">$5-7</div>
+          <div style="font-size:12px;color:var(--gray-light);">bonus + residual blended</div>
+        </div>
+        <div style="flex:1;min-width:200px;background:var(--white);border-radius:12px;padding:18px;border:1px solid var(--border);">
+          <div style="font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Referred User LTV</div>
+          <div style="font-size:28px;font-weight:700;color:var(--blue);font-family:'Playfair Display',Georgia,serif;">+18%</div>
+          <div style="font-size:12px;color:var(--gray-light);">vs. non-referred (Wharton)</div>
+        </div>
+      </div>
+      <div style="background:var(--white);border-radius:12px;padding:18px;border:1px solid var(--border);margin-bottom:16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--dark);margin-bottom:12px;">Payback Analysis</div>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:140px;">
+            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Cost per Referred User</div>
+            <div style="font-size:18px;font-weight:700;color:var(--dark);">$5.00 <span style="font-size:12px;font-weight:400;color:var(--gray);">+ ~$1.50 residual/yr</span></div>
+          </div>
+          <div style="flex:1;min-width:140px;">
+            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Est. Revenue/User/Year</div>
+            <div style="font-size:18px;font-weight:700;color:var(--dark);">$15-25 <span style="font-size:12px;font-weight:400;color:var(--gray);">txn fees + spread</span></div>
+          </div>
+          <div style="flex:1;min-width:140px;">
+            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Payback Period</div>
+            <div style="font-size:18px;font-weight:700;color:var(--green);">&lt;4 months</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:180px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <span style="font-size:16px;">🎯</span>
+            <span style="font-size:13px;font-weight:700;color:var(--dark);">Performance-Based</span>
+          </div>
+          <div style="font-size:12px;color:var(--gray);line-height:1.5;">Zero spend until transaction completes. No wasted impressions or clicks.</div>
+        </div>
+        <div style="flex:1;min-width:180px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <span style="font-size:16px;">📈</span>
+            <span style="font-size:13px;font-weight:700;color:var(--dark);">Higher Retention</span>
+          </div>
+          <div style="font-size:12px;color:var(--gray);line-height:1.5;">Referred users show 18% higher LTV and 25% higher margins than paid.*</div>
+        </div>
+        <div style="flex:1;min-width:180px;padding:14px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <span style="font-size:16px;">🔄</span>
+            <span style="font-size:13px;font-weight:700;color:var(--dark);">Network Effects</span>
+          </div>
+          <div style="font-size:12px;color:var(--gray);line-height:1.5;">Affiliates create ongoing acquisition. Marginal cost decreases as network grows.</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:11px;color:var(--gray-light);">* Schmitt, Skiera & Van den Bulte (2011). "Referral Programs and Customer Value." <em>Journal of Marketing</em>, Wharton School.</div>
+    </div>
+
+    <!-- Tier Breakdown -->
+    <div class="card" style="padding:20px;margin-bottom:24px;">
+      <h3 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:18px;">Program Tiers</h3>
+      <div style="display:flex;gap:14px;">
+        <div style="flex:1;padding:18px;background:var(--off-white);border-radius:12px;border:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Referrer</div>
+          <div style="font-size:13px;color:var(--dark);margin-bottom:6px;">0–2 conversions</div>
+          <div style="font-size:13px;color:var(--gray);">$5 per signup bonus</div>
+          <div style="font-size:13px;color:var(--gray-light);margin-top:4px;">No residual payments</div>
+        </div>
+        <div style="flex:1;padding:18px;background:var(--purple-pale);border-radius:12px;border:1px solid #7C3AED30;">
+          <div style="font-size:12px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">⚔️ Affiliate</div>
+          <div style="font-size:13px;color:var(--dark);margin-bottom:6px;">3+ conversions</div>
+          <div style="font-size:13px;color:var(--gray);">$5 per signup bonus</div>
+          <div style="font-size:13px;color:var(--purple);font-weight:600;margin-top:4px;">+ 0.5% residual on referral txns</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Year 1 Scenario -->
+    <div class="card" style="padding:20px;margin-bottom:24px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <span style="font-size:18px;">📈</span>
+        <h3 style="font-size:15px;font-weight:700;color:var(--dark);">Year 1 Scenario (Conservative)</h3>
+      </div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--border);">
+              <th style="text-align:left;padding:10px 8px;color:var(--gray);font-weight:600;">Quarter</th>
+              <th style="text-align:right;padding:10px 8px;color:var(--gray);font-weight:600;">New Users</th>
+              <th style="text-align:right;padding:10px 8px;color:var(--gray);font-weight:600;">Affiliates</th>
+              <th style="text-align:right;padding:10px 8px;color:var(--gray);font-weight:600;">Program Cost</th>
+              <th style="text-align:right;padding:10px 8px;color:var(--gray);font-weight:600;">Eff. CAC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 8px;font-weight:600;color:var(--dark);">Q1</td>
+              <td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:600;">75</td>
+              <td style="padding:10px 8px;text-align:right;">12</td>
+              <td style="padding:10px 8px;text-align:right;">$470</td>
+              <td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:600;">$6.27</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 8px;font-weight:600;color:var(--dark);">Q2</td>
+              <td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:600;">120</td>
+              <td style="padding:10px 8px;text-align:right;">25</td>
+              <td style="padding:10px 8px;text-align:right;">$780</td>
+              <td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:600;">$6.50</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 8px;font-weight:600;color:var(--dark);">Q3</td>
+              <td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:600;">180</td>
+              <td style="padding:10px 8px;text-align:right;">40</td>
+              <td style="padding:10px 8px;text-align:right;">$1,150</td>
+              <td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:600;">$6.39</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 8px;font-weight:600;color:var(--dark);">Q4</td>
+              <td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:600;">250</td>
+              <td style="padding:10px 8px;text-align:right;">60</td>
+              <td style="padding:10px 8px;text-align:right;">$1,600</td>
+              <td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:600;">$6.40</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr style="border-top:2px solid var(--border);background:var(--off-white);">
+              <td style="padding:12px 8px;font-weight:700;color:var(--dark);">Year 1 Total</td>
+              <td style="padding:12px 8px;text-align:right;font-weight:700;color:var(--green);">625</td>
+              <td style="padding:12px 8px;text-align:right;font-weight:700;">60</td>
+              <td style="padding:12px 8px;text-align:right;font-weight:700;">$4,000</td>
+              <td style="padding:12px 8px;text-align:right;font-weight:700;color:var(--green);">$6.40 avg</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--gray);">
+        <div><strong style="color:var(--dark);">User base growth:</strong> +62.5% YoY</div>
+        <div><strong style="color:var(--dark);">vs. $50 CAC paid:</strong> $31,250 saved</div>
+        <div><strong style="color:var(--dark);">Compounding:</strong> Affiliates drive Q3-Q4 acceleration</div>
+      </div>
+    </div>
+
+    <!-- Campaigns -->
+    <div class="card" style="overflow:hidden;margin-bottom:24px;">
+      <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-weight:700;color:var(--dark);font-size:15px;">Campaign Ideas</span>
+        <span style="font-size:11px;color:var(--gray-light);">Adjustable per segment</span>
+      </div>
+      <div style="display:flex;align-items:center;padding:16px 20px;border-bottom:1px solid var(--border);gap:16px;">
+        <div style="width:10px;height:10px;border-radius:5px;background:var(--green);"></div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">Launch Campaign</div><div style="font-size:12px;color:var(--gray-light);">$5 bonus · Standard</div></div>
+        <div style="text-align:right;"><div style="font-size:12px;color:var(--gray);">Target: All users</div></div>
+      </div>
+      <div style="display:flex;align-items:center;padding:16px 20px;border-bottom:1px solid var(--border);gap:16px;">
+        <div style="width:10px;height:10px;border-radius:5px;background:var(--purple);"></div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">Power User Boost</div><div style="font-size:12px;color:var(--gray-light);">$7 bonus · 10+ txns/mo</div></div>
+        <div style="text-align:right;"><div style="font-size:12px;color:var(--gray);">Higher-intent referrers</div></div>
+      </div>
+      <div style="display:flex;align-items:center;padding:16px 20px;gap:16px;">
+        <div style="width:10px;height:10px;border-radius:5px;background:var(--gold);"></div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">Creator Tier</div><div style="font-size:12px;color:var(--gray-light);">$10 bonus + 1% residual</div></div>
+        <div style="text-align:right;"><div style="font-size:12px;color:var(--gray);">Influencer partnerships</div></div>
+      </div>
+    </div>
+
+    <!-- Fraud Prevention -->
+    <div class="card" style="padding:20px;" id="fraud-rules"></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div style="text-align:center;padding:24px;border-top:1px solid var(--border);background:var(--white);">
+  <span style="font-size:11px;color:var(--gray-light);letter-spacing:2.5px;font-weight:600;">PROTECT · PROVIDE · CONQUER</span>
+</div>
+
+<script>
+// ═══ DATA ═══
+const contacts = [
+  { id:1, name:"Marcus Johnson", phone:"+1 (305) 555-0142", avatar:"MJ", selected:false },
+  { id:2, name:"Aisha Patel", phone:"+44 7700 900123", avatar:"AP", selected:false },
+  { id:3, name:"Diego Ramirez", phone:"+52 55 1234 5678", avatar:"DR", selected:false },
+  { id:4, name:"Fatima Al-Hassan", phone:"+971 50 123 4567", avatar:"FA", selected:false },
+  { id:5, name:"Kenji Tanaka", phone:"+81 90 1234 5678", avatar:"KT", selected:false },
+  { id:6, name:"Blessing Okafor", phone:"+234 801 234 5678", avatar:"BO", selected:false },
+  { id:7, name:"Sophie Chen", phone:"+65 9123 4567", avatar:"SC", selected:false },
+  { id:8, name:"Raj Sharma", phone:"+91 98765 43210", avatar:"RS", selected:false },
+];
+
+const templates = [
+  { id:1, title:"Quick & Direct", emoji:"⚡", preview:"Hey! I've been using SwordPay to send money & trade crypto — zero fees, encrypted chat, instant transfers. Use my link and we both get $5 💰" },
+  { id:2, title:"Creator Focused", emoji:"🎨", preview:"If you sell anything online, you NEED this app. SwordPay lets you get paid instantly from anywhere in the world. I'm earning through referrals too — join with my link 🌍" },
+  { id:3, title:"Crypto Angle", emoji:"₿", preview:"Found the easiest way to buy/sell/send crypto — 350+ assets, no monthly fees, plus encrypted messaging built in. Check it out through my link and we both earn 🔐" },
+];
+
+const referrals = [
+  { name:"James W.", date:"Jan 28", status:"converted", earned:5, residual:1.20 },
+  { name:"Maria L.", date:"Jan 25", status:"converted", earned:5, residual:0.85 },
+  { name:"Chen Y.", date:"Jan 22", status:"pending", earned:0, residual:0 },
+  { name:"Amara K.", date:"Jan 18", status:"converted", earned:5, residual:2.40 },
+  { name:"Tom B.", date:"Jan 15", status:"expired", earned:0, residual:0 },
+];
+
+const fraudRules = [
+  { label:"Require first transaction before payout", active:true },
+  { label:"Device fingerprint check (block duplicates)", active:true },
+  { label:"Max 20 referrals per user per month", active:true },
+  { label:"7-day cooldown before payout release", active:false },
+  { label:"Auto-promote to Affiliate at 3 conversions", active:true },
+  { label:"Cap residual at $100/month per affiliate", active:false },
+];
+
+let selectedTemplate = 1;
+let inviteStep = 1;
+
+// ═══ TAB SWITCHING ═══
+function switchTab(tab) {
+  document.querySelectorAll('[id^="tab-"]').forEach(el => {
+    if (el.id === 'tab-' + tab) el.classList.remove('hidden');
+    else if (el.id.startsWith('tab-')) el.classList.add('hidden');
+  });
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    if (btn.dataset.tab === tab) {
+      btn.style.background = 'var(--blue)'; btn.style.color = 'var(--white)';
+    } else {
+      btn.style.background = 'transparent'; btn.style.color = 'var(--gray)';
+    }
+  });
+}
+
+// ═══ REFERRALS LIST ═══
+function renderReferrals() {
+  const el = document.getElementById('referrals-list');
+  el.innerHTML = referrals.map((r, i) => {
+    const statusColors = { converted: { bg:'var(--green-pale)', color:'var(--green)' }, pending: { bg:'var(--gold-pale)', color:'var(--gold)' }, expired: { bg:'var(--red-pale)', color:'var(--red)' } };
+    const s = statusColors[r.status];
+    const initials = r.name.split(' ').map(w => w[0]).join('');
+    return `<div style="display:flex;align-items:center;padding:14px 20px;${i < referrals.length-1 ? 'border-bottom:1px solid var(--border);' : ''}gap:14px;">
+      <div style="width:36px;height:36px;border-radius:18px;background:var(--blue-pale);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">${initials}</div>
+      <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">${r.name}</div><div style="font-size:12px;color:var(--gray-light);">${r.date}</div></div>
+      <span style="padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;background:${s.bg};color:${s.color};text-transform:uppercase;letter-spacing:0.5px;">${r.status}</span>
+      <div style="width:55px;text-align:right;">
+        <div style="font-weight:700;font-size:13px;color:${r.earned > 0 ? 'var(--green)' : 'var(--gray-light)'};">${r.earned > 0 ? '+$'+r.earned.toFixed(2) : '—'}</div>
+        ${r.residual > 0 ? '<div style="font-size:11px;color:var(--purple);font-weight:600;margin-top:2px;">+$'+r.residual.toFixed(2)+'/mo</div>' : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══ INVITE FLOW ═══
+function renderInviteStep() {
+  const el = document.getElementById('invite-steps');
+  const selected = contacts.filter(c => c.selected);
+  const count = selected.length;
+
+  const stepBar = `<div style="display:flex;gap:8px;margin-bottom:28px;">
+    ${['Select Contacts','Choose Message','Preview & Send'].map((label, i) => `
+      <div style="flex:1;text-align:center;">
+        <div style="height:4px;border-radius:2px;background:${inviteStep >= i+1 ? 'var(--blue)' : 'var(--border)'};margin-bottom:8px;transition:background 0.3s ease;"></div>
+        <span style="font-size:11px;color:${inviteStep >= i+1 ? 'var(--blue)' : 'var(--gray-light)'};font-weight:600;letter-spacing:0.5px;">${label}</span>
+      </div>
+    `).join('')}
+  </div>`;
+
+  if (inviteStep === 1) {
+    const allSelected = contacts.every(c => c.selected);
+    el.innerHTML = stepBar + `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h3 style="color:var(--dark);font-size:17px;font-weight:700;">WhatsApp Contacts</h3>
+        <button class="btn" onclick="toggleAll()" style="background:var(--blue-pale);color:var(--blue);padding:7px 16px;border-radius:8px;font-size:12px;">${allSelected ? 'Deselect All' : 'Select All'}</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        ${contacts.map(c => `
+          <div onclick="toggleContact(${c.id})" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:${c.selected ? 'var(--blue-pale)' : 'var(--white)'};border:1.5px solid ${c.selected ? 'var(--blue)' : 'var(--border)'};border-radius:12px;cursor:pointer;transition:all 0.2s ease;">
+            <div style="width:40px;height:40px;border-radius:20px;background:${c.selected ? 'var(--blue)' : 'var(--off-white)'};color:${c.selected ? 'var(--white)' : 'var(--gray)'};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">${c.avatar}</div>
+            <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--dark);">${c.name}</div><div style="font-size:12px;color:var(--gray-light);">${c.phone}</div></div>
+            <div style="width:22px;height:22px;border-radius:6px;border:2px solid ${c.selected ? 'var(--blue)' : 'var(--border)'};background:${c.selected ? 'var(--blue)' : 'transparent'};display:flex;align-items:center;justify-content:center;">
+              ${c.selected ? '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <button class="btn" onclick="if(${count}>0){inviteStep=2;renderInviteStep();}" style="width:100%;margin-top:20px;padding:16px;background:${count > 0 ? 'var(--blue)' : 'var(--border)'};color:${count > 0 ? 'var(--white)' : 'var(--gray-light)'};border-radius:12px;font-size:15px;cursor:${count > 0 ? 'pointer' : 'not-allowed'};">Continue with ${count} Contact${count !== 1 ? 's' : ''} →</button>
+    `;
+  } else if (inviteStep === 2) {
+    el.innerHTML = stepBar + `
+      <h3 style="color:var(--dark);font-size:17px;font-weight:700;margin-bottom:16px;">Choose Your Message</h3>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        ${templates.map(t => `
+          <div onclick="selectedTemplate=${t.id};renderInviteStep();" style="padding:20px;background:${selectedTemplate === t.id ? 'var(--blue-pale)' : 'var(--white)'};border:1.5px solid ${selectedTemplate === t.id ? 'var(--blue)' : 'var(--border)'};border-radius:14px;cursor:pointer;transition:all 0.2s ease;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <span style="font-size:22px;">${t.emoji}</span>
+              <span style="font-weight:700;color:var(--dark);font-size:15px;">${t.title}</span>
+              ${selectedTemplate === t.id ? '<span style="margin-left:auto;font-size:11px;font-weight:700;color:var(--blue);background:var(--white);padding:3px 10px;border-radius:20px;">Selected</span>' : ''}
+            </div>
+            <div style="font-size:13px;color:var(--gray);line-height:1.6;">${t.preview}</div>
+          </div>
+        `).join('')}
+      </div>
+      <div style="display:flex;gap:12px;margin-top:20px;">
+        <button class="btn" onclick="inviteStep=1;renderInviteStep();" style="flex:1;padding:16px;background:var(--white);border:1.5px solid var(--border);color:var(--gray);border-radius:12px;font-size:14px;">← Back</button>
+        <button class="btn" onclick="inviteStep=3;renderInviteStep();" style="flex:2;padding:16px;background:var(--blue);color:var(--white);border-radius:12px;font-size:15px;">Preview Message →</button>
+      </div>
+    `;
+  } else if (inviteStep === 3) {
+    const t = templates.find(t => t.id === selectedTemplate);
+    el.innerHTML = stepBar + `
+      <h3 style="color:var(--dark);font-size:17px;font-weight:700;margin-bottom:16px;">Preview & Send</h3>
+      <div style="background:#0B3D2E;border-radius:14px;padding:20px;margin-bottom:20px;">
+        <div style="font-size:11px;color:#86CBA5;margin-bottom:10px;font-weight:600;">WhatsApp Preview</div>
+        <div style="background:#005C4B;border-radius:12px 12px 4px 12px;padding:14px;font-size:14px;color:#E9EDEF;line-height:1.6;">
+          ${t.preview}
+          <div style="margin-top:10px;padding:10px 14px;background:#00000030;border-radius:8px;font-size:13px;">🔗 <span style="color:#93C5FD;text-decoration:underline;">sword.me/ref/kam2847</span></div>
+          <div style="font-size:11px;color:#86CBA5;text-align:right;margin-top:6px;">2:34 PM ✓✓</div>
+        </div>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px;">
+        <div style="font-size:12px;color:var(--gray);margin-bottom:10px;font-weight:600;letter-spacing:1px;">SENDING TO (${count})</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          ${selected.map(c => `<span style="padding:5px 12px;background:var(--blue-pale);border-radius:20px;font-size:13px;color:var(--blue);font-weight:600;">${c.name}</span>`).join('')}
+        </div>
+      </div>
+      <div style="background:var(--blue-pale);border:1px solid #2E35A020;border-radius:12px;padding:20px;margin-bottom:24px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:12px;">
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:12px;color:var(--gray);">Signup Bonuses</div>
+            <div style="font-size:22px;font-weight:700;color:var(--green);font-family:'Playfair Display',Georgia,serif;">$${(count*5).toFixed(2)}</div>
+            <div style="font-size:11px;color:var(--gray);">one-time</div>
+          </div>
+          <div style="width:1px;background:var(--border);"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="font-size:12px;color:var(--gray);">Residual Potential</div>
+            <div style="font-size:22px;font-weight:700;color:var(--purple);font-family:'Playfair Display',Georgia,serif;">Ongoing</div>
+            <div style="font-size:11px;color:var(--gray);">monthly payments</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--gray);text-align:center;border-top:1px solid var(--border);padding-top:10px;">⚔️ Affiliate status: earn from every transaction your referrals make</div>
+      </div>
+      <div style="display:flex;gap:12px;">
+        <button class="btn" onclick="inviteStep=2;renderInviteStep();" style="flex:1;padding:16px;background:var(--white);border:1.5px solid var(--border);color:var(--gray);border-radius:12px;font-size:14px;">← Back</button>
+        <button class="btn" onclick="sendInvites()" style="flex:2;padding:16px;background:#25D366;color:#fff;border-radius:12px;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.657 0-3.216-.5-4.51-1.355l-.315-.19-2.87.852.852-2.87-.19-.315A7.955 7.955 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Send via WhatsApp
+        </button>
+      </div>
+    `;
+  }
+}
+
+function toggleContact(id) {
+  const c = contacts.find(c => c.id === id);
+  if (c) c.selected = !c.selected;
+  renderInviteStep();
+}
+
+function toggleAll() {
+  const allSelected = contacts.every(c => c.selected);
+  contacts.forEach(c => c.selected = !allSelected);
+  renderInviteStep();
+}
+
+function sendInvites() {
+  const selected = contacts.filter(c => c.selected);
+  document.getElementById('invite-steps').classList.add('hidden');
+  document.getElementById('invite-sent').classList.remove('hidden');
+  document.getElementById('sent-count-text').textContent = `${selected.length} contacts will receive your referral via WhatsApp.`;
+  document.getElementById('sent-contacts').innerHTML = selected.map(c =>
+    `<span style="padding:6px 14px;background:var(--green-pale);border:1px solid #22C55E40;border-radius:20px;font-size:13px;color:var(--green);font-weight:600;">✓ ${c.name}</span>`
+  ).join('');
+}
+
+function resetInvites() {
+  contacts.forEach(c => c.selected = false);
+  selectedTemplate = 1;
+  inviteStep = 1;
+  document.getElementById('invite-sent').classList.add('hidden');
+  document.getElementById('invite-steps').classList.remove('hidden');
+  renderInviteStep();
+}
+
+// ═══ FRAUD RULES ═══
+function renderFraudRules() {
+  const el = document.getElementById('fraud-rules');
+  el.innerHTML = `<h3 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:16px;">Program Rules & Fraud Prevention</h3>` +
+    fraudRules.map((rule, i) => `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 0;${i < fraudRules.length-1 ? 'border-bottom:1px solid var(--border);' : ''}">
+        <span style="font-size:14px;color:var(--dark);">${rule.label}</span>
+        <div onclick="fraudRules[${i}].active=!fraudRules[${i}].active;renderFraudRules();" style="width:44px;height:24px;border-radius:12px;background:${rule.active ? 'var(--blue)' : 'var(--border)'};padding:2px;cursor:pointer;transition:all 0.2s ease;">
+          <div style="width:20px;height:20px;border-radius:10px;background:var(--white);transform:translateX(${rule.active ? '20px' : '0'});transition:transform 0.2s ease;box-shadow:0 1px 3px rgba(0,0,0,0.15);"></div>
+        </div>
+      </div>
+    `).join('');
+}
+
+// ═══ PHONE CAROUSEL ═══
+function scrollPhones(direction) {
+  const carousel = document.getElementById('phone-carousel');
+  if (carousel) {
+    const scrollAmount = 260; // phone width + gap
+    carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+}
+
+// ═══ RESET DEMO ═══
+function resetDemo() {
+  // Reset contacts
+  contacts.forEach(c => c.selected = false);
+  // Reset invite flow
+  selectedTemplate = 1;
+  inviteStep = 1;
+  document.getElementById('invite-sent').classList.add('hidden');
+  document.getElementById('invite-steps').classList.remove('hidden');
+  // Reset to dashboard tab
+  switchTab('dashboard');
+  // Show popup again
+  document.getElementById('popup-overlay').classList.remove('hidden');
+  // Re-render
+  renderInviteStep();
+}
+
+// ═══ INIT ═══
+renderReferrals();
+renderInviteStep();
+renderFraudRules();
+</script>
+</body>
+</html>
